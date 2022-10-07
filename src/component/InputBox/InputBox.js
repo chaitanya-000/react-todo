@@ -1,22 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { FiEdit } from "react-icons/fi";
+import { myContext } from "../../App";
 import "./InputBox.css";
 
-const InputBox = ({
-  task,
-  setTask,
-  taskArray,
-  setTaskArray,
-  completed,
-  toggleSubmit,
-  setToggleSubmit,
-  isEdit,
-  setIsEdit,
-}) => {
+const InputBox = () => {
+  const {
+    taskArray,
+    setTaskArray,
+    task,
+    setTask,
+    setToggleSubmit,
+    toggleSubmit,
+    isEdit,
+    setIsEdit,
+  } = useContext(myContext);
   const handleChange = (event) => {
     setTask(event.target.value);
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  };
   const handleButton = () => {
     if (task === "") {
       alert("Please Enter a task");
@@ -50,23 +54,29 @@ const InputBox = ({
   };
 
   return (
-    <div className=" input">
-      <input
-        className="input__searchBar"
-        placeholder="I wish to..."
-        value={task}
-        onChange={handleChange}
-      />
-      {toggleSubmit ? (
-        <button className="input__button" onClick={handleButton}>
-          +
-        </button>
-      ) : (
-        <button className="input__button" onClick={handleButton}>
-          <FiEdit />
-        </button>
-      )}
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className=" input">
+        <input
+          className="input__searchBar"
+          placeholder="I wish to..."
+          value={task}
+          onChange={handleChange}
+        />
+        {toggleSubmit ? (
+          <button
+            className="input__button"
+            onClick={handleButton}
+            type="submit"
+          >
+            +
+          </button>
+        ) : (
+          <button className="input__button" onClick={handleButton}>
+            <FiEdit />
+          </button>
+        )}
+      </div>
+    </form>
   );
 };
 

@@ -1,19 +1,20 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./AddedTask.css";
 import { MdDelete, MdOutlineDoneOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { IconContext } from "react-icons";
+import { myContext } from "../../App";
 
-const AddedTask = ({
-  taskArray,
-  setTaskArray,
-  task,
-  setTask,
-  setToggleSubmit,
-  toggleSubmit,
-  isEdit,
-  setIsEdit,
-}) => {
+const AddedTask = () => {
+  const {
+    taskArray,
+    setTaskArray,
+
+    setTask,
+    setToggleSubmit,
+
+    setIsEdit,
+  } = useContext(myContext);
   const [finished, setFinished] = useState(false);
   const now = new Date();
   const handleDelete = (id) => {
@@ -58,27 +59,29 @@ const AddedTask = ({
       </h2>
       {taskArray.map((eachObj, index) => {
         return (
-          <div className="taskContainer" key={eachObj.id}>
-            <h4
-              className={
-                eachObj.isCompleted
-                  ? "taskContainer__taskName--crossed"
-                  : "taskContainer__taskName--none"
-              }
-            >
-              {eachObj.id}) {eachObj.todo}
-            </h4>
+          <div className="container">
+            <div className="taskContainer" key={eachObj.id}>
+              <h4
+                className={
+                  eachObj.isCompleted
+                    ? "taskContainer__taskName--crossed"
+                    : "taskContainer__taskName--none"
+                }
+              >
+                {eachObj.todo}
+              </h4>
 
-            <div className="taskContainer__buttons">
-              <IconContext.Provider value={{ className: "icons" }}>
-                <FiEdit onClick={() => handleEdit(eachObj.id)} />
+              <div className="taskContainer__buttons">
+                <IconContext.Provider value={{ className: "icons" }}>
+                  <FiEdit onClick={() => handleEdit(eachObj.id)} />
 
-                <MdOutlineDoneOutline
-                  onClick={() => handleCompleted(eachObj)}
-                />
+                  <MdOutlineDoneOutline
+                    onClick={() => handleCompleted(eachObj)}
+                  />
 
-                <MdDelete onClick={() => handleDelete(eachObj.id)} />
-              </IconContext.Provider>
+                  <MdDelete onClick={() => handleDelete(eachObj.id)} />
+                </IconContext.Provider>
+              </div>
             </div>
           </div>
         );
