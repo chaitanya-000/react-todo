@@ -1,0 +1,37 @@
+.input {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+  width: 500px;
+  margin-bottom: 30px;
+}
+.input__searchBar {
+  width: 450px;
+  height: 40px;
+  font-size: 25px;
+  padding: 10px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid #495878;
+}
+
+.input__button {
+  width: 70px;
+  height: inherit;
+  margin-left: 20px;
+  font-size: 50px;
+  background: transparent;
+  color: wheat;
+  outline: none;
+  border: none;
+}
+
+.input__searchBar:focus {
+  background-color: rgb(0, 0, 0);
+  outline: none;
+  border: 2px solid
+    linear-gradient(to right top, #5790e4, #00b0ee, #00c8ce, #32d793, #b5dc5d);
+}
+.input__button:active {
+  color: white;
+}
