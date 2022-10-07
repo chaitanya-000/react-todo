@@ -3,7 +3,7 @@
 .App {
   width: 100vw;
   height: 100vh;
-  background-image: url("/Users/chaitanyajoshi/Desktop/react-todo/pexels-pixabay-268349.jpg");
+  background-image: url("/react-todo-app/pexels-pixabay-268349.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
