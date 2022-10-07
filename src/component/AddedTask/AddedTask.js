@@ -2,8 +2,8 @@ import React, { useContext, useState } from "react";
 import "./AddedTask.css";
 import { MdDelete, MdOutlineDoneOutline } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
-import { IconContext } from "react-icons";
 import { myContext } from "../../App";
+import { IconContext } from "react-icons/lib";
 
 const AddedTask = () => {
   const {
@@ -24,7 +24,6 @@ const AddedTask = () => {
   };
 
   const handleCompleted = (eachObj) => {
-    // console.log("I clicked on completed Button", eachObj);
     setFinished(!finished);
     const newArray = taskArray.map((task) => {
       if (task.id === eachObj.id)
