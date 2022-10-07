@@ -38,7 +38,7 @@
   font-family: inherit;
 
   text-decoration-line: line-through;
-  text-decoration-style: solid;
+  text-decoration-style: solidnpm i svgo;
 }
 .taskContainer__buttons {
   display: flex;
